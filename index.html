@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>InternFinder | Smart Internship Discovery</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+    <div class="nav-container">
+
+        <a href="#home" class="logo">
+            <span class="logo-icon">IF</span>
+            <span>Intern<span>Finder</span></span>
+        </a>
+
+        <div class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#profile">My Profile</a>
+            <a href="#jobs">Internships</a>
+            <a href="#calendar">Recruitment Calendar</a>
+        </div>
+
+        <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+
+    </div>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-container">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                ✨ Smart Internship Discovery
+            </div>
+
+            <h1>
+                Find the right internship.
+                <span>At the right time.</span>
+            </h1>
+
+            <p>
+                InternFinder doesn't just show internships that are open today.
+                It helps you discover opportunities that match your skills
+                and tells you when companies are likely to recruit.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn" onclick="scrollToProfile()">
+                    Build My Profile →
+                </button>
+
+                <button class="secondary-btn" onclick="scrollToCalendar()">
+                    View Recruitment Calendar
+                </button>
+
+            </div>
+
+            <div class="hero-stats">
+
+                <div>
+                    <strong>500+</strong>
+                    <span>Opportunities</span>
+                </div>
+
+                <div>
+                    <strong>30+</strong>
+                    <span>Companies</span>
+                </div>
+
+                <div>
+                    <strong>12</strong>
+                    <span>Months tracked</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO DEMO CARD -->
+
+        <div class="hero-visual">
+
+            <div class="floating-card notification">
+                🔔 <strong>Upcoming opportunity</strong>
+                <small>Google SWE Internship • Expected Feb</small>
+            </div>
+
+            <div class="match-card">
+
+                <div class="match-top">
+                    <div class="company-logo google">G</div>
+
+                    <div>
+                        <h3>Software Engineering Intern</h3>
+                        <p>Google</p>
+                    </div>
+
+                    <div class="match-score">94%</div>
+                </div>
+
+                <div class="skill-tags">
+                    <span>Python</span>
+                    <span>DSA</span>
+                    <span>SQL</span>
+                </div>
+
+                <div class="match-info">
+                    <span>📍 Bangalore / Remote</span>
+                    <span>🗓 Expected Feb–Mar</span>
+                </div>
+
+                <div class="match-reason">
+                    <strong>Why this match?</strong>
+                    <p>Your Python, DSA and SQL skills match this role.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features-section">
+
+    <div class="section-heading">
+        <span class="section-label">WHY INTERNFINDER?</span>
+        <h2>Stop searching. Start planning.</h2>
+        <p>
+            A smarter way to discover and prepare for internship opportunities.
+        </p>
+    </div>
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Skill-Based Matching</h3>
+            <p>
+                Get internship recommendations based on your actual skills
+                instead of scrolling through hundreds of unrelated listings.
+            </p>
+        </div>
+
+        <div class="feature-card featured">
+            <div class="unique-badge">UNIQUE FEATURE</div>
+            <div class="feature-icon">📅</div>
+            <h3>Recruitment Calendar</h3>
+            <p>
+                Know when companies usually recruit and prepare before
+                the application window opens.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🔔</div>
+            <h3>Opportunity Alerts</h3>
+            <p>
+                Identify upcoming opportunities early so you don't miss
+                internships simply because you applied too late.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section class="profile-section" id="profile">
+
+    <div class="section-heading">
+        <span class="section-label">STEP 01</span>
+        <h2>Build your internship profile</h2>
+        <p>
+            Tell us what you know and what kind of internship you're looking for.
+        </p>
+    </div>
+
+
+    <div class="profile-container">
+
+        <div class="profile-form">
+
+            <div class="form-group">
+                <label>Preferred Role</label>
+
+                <select id="preferred-role">
+                    <option value="">Any Role</option>
+                    <option value="Software Engineering">Software Engineering</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="AI/ML">AI / ML</option>
+                    <option value="Backend Development">Backend Development</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label>Preferred Work Mode</label>
+
+                <div class="choice-group">
+
+                    <button class="choice-btn selected" onclick="selectChoice(this, 'workMode')">
+                        Any
+                    </button>
+
+                    <button class="choice-btn" onclick="selectChoice(this, 'workMode')">
+                        Remote
+                    </button>
+
+                    <button class="choice-btn" onclick="selectChoice(this, 'workMode')">
+                        Hybrid
+                    </button>
+
+                    <button class="choice-btn" onclick="selectChoice(this, 'workMode')">
+                        On-site
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Your Skills</label>
+
+                <div class="skill-selector">
+
+                    <button class="skill-btn" onclick="toggleSkill(this)">Python</button>
+                    <button class="skill-btn" onclick="toggleSkill(this)">C++</button>
+                    <button class="skill-btn" onclick="toggleSkill(this)">Java</button>
+                    <button class="skill-btn" onclick="toggleSkill(this)">JavaScript</button>
+                    <button class="skill-btn" onclick="toggleSkill(this)">HTML</button>
+                    <button class="skill-btn" onclick="toggleSkill(this)">CSS</button>
+                    <button class="skill-btn" onclick="toggleSkill(this)">SQL</button>
+                    <button class="skill-btn" onclick="toggleSkill(this)">Machine Learning</button>
+                    <button class="skill-btn" onclick="toggleSkill(this)">Data Structures</button>
+                    <button class="skill-btn" onclick="toggleSkill(this)">Git & GitHub</button>
+                    <button class="skill-btn" onclick="toggleSkill(this)">React</button>
+                    <button class="skill-btn" onclick="toggleSkill(this)">Node.js</button>
+
+                </div>
+
+            </div>
+
+
+            <button class="find-btn" onclick="showJobs()">
+                Find My Matching Internships →
+            </button>
+
+        </div>
+
+
+        <!-- PROFILE SUMMARY -->
+
+        <div class="profile-summary">
+
+            <div class="profile-avatar">
+                👩‍💻
+            </div>
+
+            <h3>Your Profile</h3>
+
+            <div class="skill-count">
+                <strong id="skill-count">0</strong>
+                <span>skills selected</span>
+            </div>
+
+            <div id="selected-skills" class="selected-skills">
+
+                <p class="empty-skills">
+                    Select skills to build your profile.
+                </p>
+
+            </div>
+
+            <div class="profile-tip">
+                💡 <strong>Tip:</strong>
+                Add more relevant skills to improve your match accuracy.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= JOBS ================= -->
+
+<section class="jobs-section" id="jobs">
+
+    <div class="section-heading left">
+
+        <div>
+            <span class="section-label">STEP 02</span>
+            <h2>Recommended for you</h2>
+            <p id="recommendation-text">
+                Select your skills above to discover relevant internships.
+            </p>
+        </div>
+
+        <div class="job-filter">
+            <select id="job-filter" onchange="filterJobs()">
+                <option value="all">All Opportunities</option>
+                <option value="open">Open Now</option>
+                <option value="upcoming">Opening Soon</option>
+                <option value="expected">Expected</option>
+            </select>
+        </div>
+
+    </div>
+
+
+    <div id="jobs-container" class="jobs-grid">
+        <!-- Jobs generated by JavaScript -->
+    </div>
+
+</section>
+
+
+<!-- ================= CALENDAR ================= -->
+
+<section class="calendar-section" id="calendar">
+
+    <div class="section-heading">
+
+        <span class="section-label">STEP 03</span>
+
+        <h2>Recruitment Opportunity Calendar</h2>
+
+        <p>
+            Plan ahead using historical recruitment patterns and predicted
+            application windows.
+        </p>
+
+    </div>
+
+
+    <div class="calendar-controls">
+
+        <button onclick="changeYear(-1)">←</button>
+
+        <h3 id="calendar-year">2027</h3>
+
+        <button onclick="changeYear(1)">→</button>
+
+    </div>
+
+
+    <div class="calendar-grid" id="calendar-grid">
+        <!-- Generated dynamically -->
+    </div>
+
+
+    <!-- PREDICTION -->
+
+    <div class="prediction-section">
+
+        <div class="prediction-header">
+
+            <div>
+                <span class="section-label">PREDICTED OPPORTUNITY</span>
+                <h3>What should you prepare for?</h3>
+            </div>
+
+        </div>
+
+
+        <div class="prediction-card">
+
+            <div class="prediction-company">
+                <div class="company-logo google">G</div>
+
+                <div>
+                    <h3>Google</h3>
+                    <p>Software Engineering Internship</p>
+                </div>
+            </div>
+
+
+            <div class="prediction-data">
+
+                <div>
+                    <span>Expected Window</span>
+                    <strong>Feb – Mar</strong>
+                </div>
+
+                <div>
+                    <span>Historical Pattern</span>
+                    <strong>3 / 4 years</strong>
+                </div>
+
+                <div>
+                    <span>Confidence</span>
+                    <strong class="confidence">High</strong>
+                </div>
+
+            </div>
+
+
+            <div class="prediction-message">
+
+                📌
+                <span>
+                    Based on historical recruitment patterns, this is a good
+                    period to monitor Google's internship openings.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta-section">
+
+    <div>
+
+        <span class="section-label">PLAN AHEAD</span>
+
+        <h2>
+            Your next internship shouldn't be a surprise.
+        </h2>
+
+        <p>
+            Know what fits you and when to apply.
+        </p>
+
+        <button class="primary-btn" onclick="scrollToProfile()">
+            Start Finding Opportunities →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MODAL ================= -->
+
+<div class="modal-overlay" id="job-modal">
+
+    <div class="job-modal">
+
+        <button class="close-modal" onclick="closeModal()">×</button>
+
+        <div id="modal-content"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div>
+            <div class="logo">
+                <span class="logo-icon">IF</span>
+                <span>Intern<span>Finder</span></span>
+            </div>
+
+            <p>
+                Find the right internship.<br>
+                At the right time.
+            </p>
+        </div>
+
+        <div>
+            <h4>Platform</h4>
+            <a href="#profile">My Profile</a>
+            <a href="#jobs">Internships</a>
+            <a href="#calendar">Recruitment Calendar</a>
+        </div>
+
+        <div>
+            <h4>About</h4>
+            <a href="#home">How it works</a>
+            <a href="#home">Our Mission</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 InternFinder · Smart Internship Discovery Platform
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
